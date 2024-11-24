@@ -1,0 +1,93 @@
+/* Light mode styles */
+body.light-mode {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for background and text color */
+  }
+  
+  /* Dark mode styles (default) */
+  body {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for background and text color */
+  }
+  
+  /* Toggle button styles */
+  #modeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+   border: none;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition for background color and transform */
+  }
+  
+  /* Toggle button hover effect */
+  #modeToggle:hover {
+    background-color: #4b4b4b;
+    transform: scale(1.1);  /* Button grows slightly when hovered */
+  }
+  
+  /* Button active state (when clicked) */
+  #modeToggle:active {
+    transform: scale(0.95);  /* Slight shrink when clicked */
+  }
+  
+  /* Styling for the beat buttons */
+  button.beat {
+    background-color: black;
+    padding: 10px;
+    border: 10px solid white;
+    margin: 5px;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;  /* Smooth transition for beat buttons */
+  }
+  
+  /* Active state of the beat button */
+  button.on {
+    background-color: red;
+    border-color: red;
+  }
+  
+  /* Ticked state of the beat button */
+  button.ticked {
+    background-color: white;
+    border-color: white;
+  }
+  
+  /* Grid styling */
+  #grid {
+    width: 800px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+  
+      @keyframes octocat-wave {
+        0%, 100% {
+          transform: rotate(0);
+        }
+        20%, 60% {
+          transform: rotate(-25deg);
+        }
+        40%, 80% {
+          transform: rotate(10deg);
+        }
+      }
