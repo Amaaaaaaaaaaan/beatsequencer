@@ -11,44 +11,82 @@
   <title>Beatboxer</title>
 
   <style>
-    body {
-      background-color: black;
-    }
+  /* Light mode styles */
+body.light-mode {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for background and text color */
+}
 
-    p {
-      margin: 0;
-    }
+/* Dark mode styles (default) */
+body {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for background and text color */
+}
 
-    button.beat {
-      background-color: black;
-      padding: 10px;
-      border: 10px solid white;
-      margin: 5px;
-      cursor: pointer;
-      width: 0;
-      height: 0;
-    }
+/* Toggle button styles */
+#modeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background-color: gray;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition for background color and transform */
+}
 
-    button.on {
-      background-color: red;
-      border-color: red;
-    }
+/* Toggle button hover effect */
+#modeToggle:hover {
+  background-color: #4b4b4b;
+  transform: scale(1.1);  /* Button grows slightly when hovered */
+}
 
-    button.ticked {
-      background-color: white;
-      border-color: white;
-    }
+/* Button active state (when clicked) */
+#modeToggle:active {
+  transform: scale(0.95);  /* Slight shrink when clicked */
+}
 
-    #grid {
-      width: 800px;
-      height: 200px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
+/* Styling for the beat buttons */
+button.beat {
+  background-color: black;
+  padding: 10px;
+  border: 10px solid white;
+  margin: 5px;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;  /* Smooth transition for beat buttons */
+}
+
+/* Active state of the beat button */
+button.on {
+  background-color: red;
+  border-color: red;
+}
+
+/* Ticked state of the beat button */
+button.ticked {
+  background-color: white;
+  border-color: white;
+}
+
+/* Grid styling */
+#grid {
+  width: 800px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 
     .github-corner:hover .octo-arm {
       animation: octocat-wave 560ms ease-in-out;
@@ -85,6 +123,9 @@
   <button id="stopSequencerButton">Stop Sequencer</button>
   <button id="startSequencerButton">Start Sequencer</button> <!-- Start button for the sequencer -->
   <!-- Link to download the recorded audio -->
+<!-- Mode Toggle Button -->
+<button id="modeToggle">🌙</button>
+
   <a id="downloadLink" style="display: none;">Download Recording</a>
 
   <script>
@@ -100,7 +141,9 @@
       'sounds/low_tom.wav',
       'sounds/mid_tom.wav',
     ];
-
+    document.getElementById('modeToggle').addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+    });
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const buffers = [];
     const theGrid = document.getElementById('grid');
