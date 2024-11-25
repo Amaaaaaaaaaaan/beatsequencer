@@ -9,6 +9,19 @@ const sounds = [
   'sounds/snare_drum.wav',
   'sounds/low_tom.wav',
   'sounds/mid_tom.wav',
+  'sounds/hi_tom.wav',
+      'sounds/rim_shot.wav',
+      'sounds/hand_clap.wav',
+      'sounds/cowbell.wav',
+      'sounds/cymbal.wav',
+      'sounds/o_hi_hat.wav',
+      'sounds/cl_hi_hat.wav',
+
+      'sounds/low_conga.wav',
+      'sounds/mid_conga.wav',
+      'sounds/hi_conga.wav',
+      'sounds/claves.wav',
+      'sounds/maracas.wav',
 ];
 document.getElementById('modeToggle').addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
